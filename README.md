@@ -4,8 +4,9 @@
 
 ### Color Depth
 - The amount of data used to represent a single pixel
-|  size  | color options                           |
-|--------|-----------------------------------------|
+
+| size   | color options                           |
+| ------ | --------------------------------------- |
 | 1 bit  | 1 color, on/off                         |
 | 2 bit  | 1 color with intensity                  |
 | 3 bit  | red, green, blue, on/off                |
