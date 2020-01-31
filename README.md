@@ -1,5 +1,17 @@
 # graphics-work
 
+## Thursday 1/30/20
+
+### PPM (Portable PixMap)
+- Uncompressed raster format
+- NetPBM is a family of related formats
+- Pixel data is represented by RGB triplets in either ASCII or binary
+- All whitespace is equivalent
+
+### ImageMagick
+- Can use display command to open image file formats
+- Can use convert command all image file formats
+
 ## Wednesday 1/29/20
 
 ### Color Depth
@@ -30,7 +42,7 @@
   - compressed formats use a compression algorithm to minimize file size
     - Lossless vs. Lossy
       - lossless compression algorithms contain enough information to exactly recreate the original image
-      	- run length encoding (turns a row that is RRRRRRGGBBB into 6R2G3B
+      	- run length encoding (turns a row that is RRRRRRGGBBB into 6R2G3B)
       	- PNG (Portable Network Graphics), GIF (Graphics Interchange Format)
       - lossy compression algorithms do not retain all the details of the original image
       	- JPEG (Joint Photographic Experts Group)
