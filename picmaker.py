@@ -1,5 +1,3 @@
-import random
-
 file = open("image.ppm", "w")
 
 file.write("P3\n500 500\n255\n")
