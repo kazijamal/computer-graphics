@@ -1,6 +1,30 @@
 # graphics-work
 
-## Thursday 1/30/20
+## Monday 02/03/20
+
+### Line Algorithm
+
+The coordinate grid in graphics has octants instead of quadrants
+
+| octant | properties | potential pixels   |
+| ------ | ---------- | ------------------ |
+| I      | 0 < m < 1  | right or top-right |
+
+input = 2 endpoints
+
+#### Outline
+```
+for x in x0 -> x1:
+  TEST (x+1, y)
+  TEST (x+1, y+1)
+  PLOT BEST RESULT
+```
+
+- slope-intercept form: y = mx + b
+- standard form: Ax + By + C = 0
+- A = change in y, B = negative change in x, C = change in x times b
+
+## Thursday 01/30/20
 
 ### PPM (Portable PixMap)
 - Uncompressed raster format
@@ -12,10 +36,10 @@
 - Can use display command to open image file formats
 - Can use convert command all image file formats
 
-## Wednesday 1/29/20
+## Wednesday 01/29/20
 
 ### Color Depth
-- The amount of data used to represent a single pixel
+The amount of data used to represent a single pixel
 
 | size   | color options                           |
 | ------ | --------------------------------------- |
