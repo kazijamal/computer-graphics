@@ -1,5 +1,48 @@
 # graphics-work
 
+## Tuesday 02/04/20
+
+### Line Algorithm Continued
+```
+f(x,y) = Ax + By + C
+IF f(x,y) = 0
+  THEN (x,y) IS ON THE LINE
+
+x = x0, y = y0
+FOR X: x0 -> x1
+  v0 = f(x+1,y+1)
+  v1 = f(x+1,y)
+  IF (abs(v0) < abs(v1))
+    PLOT (x+1,y+1)
+  ELSE
+    PLOT (x+1,y)
+```
+
+#### Optimize Using Midpoint
+- 2 options: (x+1,y) or (x+1,y+1)
+- midpoint: (x+1, y+1/2)
+  - if midpoint is 0, pick either option
+  - if midpoint > 0 -> midpoint is below the line -> pick top pixel (x+1,y+1)
+  - if midpoint < 0 -> midpoint is above the line -> pick bottom pixel (x+1,y)
+```
+x = x0, y = y0
+FOR X: x0 -> x1
+  d = f(x+1,y+1/2)
+  IF (d > 0)
+    y += 1
+  x += 1
+  PLOT (x, y)
+```
+
+#### Optimize f(x,y)
+- f(x0,y0) = 0
+- f(x0+1, y0+1/2) = A(x0+1) + B(y0+1/2) + C 
+  - = Ax0 + A + By0 + 1/2B + C
+  - = Ax0 + By0 + C + A + 1/2B 
+  - = A + 1/2B
+
+----------------------------------------------------------------------
+
 ## Monday 02/03/20
 
 ### Line Algorithm
@@ -14,15 +57,17 @@ input = 2 endpoints
 
 #### Outline
 ```
-for x in x0 -> x1:
-  TEST (x+1, y)
-  TEST (x+1, y+1)
+FOR X: x0 -> x1
+  TEST (x+1,y)
+  TEST (x+1,y+1)
   PLOT BEST RESULT
 ```
 
 - slope-intercept form: y = mx + b
 - standard form: Ax + By + C = 0
 - A = change in y, B = negative change in x, C = change in x times b
+
+----------------------------------------------------------------------
 
 ## Thursday 01/30/20
 
@@ -35,6 +80,8 @@ for x in x0 -> x1:
 ### ImageMagick
 - Can use display command to open image file formats
 - Can use convert command all image file formats
+
+----------------------------------------------------------------------
 
 ## Wednesday 01/29/20
 
