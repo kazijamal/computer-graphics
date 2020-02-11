@@ -1,5 +1,40 @@
 # graphics-work
 
+## Tuesday 02/11/20
+
+### Matrices in Graphics
+- our images will be stored as a list/matrix of edges
+- each 2 entries will represent a line
+- [ P0, P1, P2, P3, P4, P5 ... Pn ]
+- each point is an (x,y) or (x,y,z) set of coordinates
+
+| x0 x1 ... xn |
+
+| y0 y1 ... yn |
+
+| z0 z1 ... zn |
+
+  P0 P1 ... Pn
+
+### Matrix Math
+- matrix multiplication
+  - M0 * M1 != M1 * M0
+  - number of columns in first matrix but equal number of rows in second matrix
+  - dimensions of product: rows of first matrix and columns of second matrix
+  - multiply edge matrices with 3x3 matrices to have a product that is 3xN
+    - the first matrix should be the 3x3 matrix, and the second matrix should be the 3xN matrix
+- multiplicative identity
+  - I * M0 = M0
+  - I is a square with diagonal 1s
+
+| 1 0 0 |
+
+| 0 1 0 |
+
+| 0 0 1 |
+
+----------------------------------------------------------------------
+
 ## Tuesday 02/04/20
 
 ### Line Algorithm Continued
@@ -8,7 +43,7 @@ f(x,y) = Ax + By + C
 IF f(x,y) = 0
   THEN (x,y) IS ON THE LINE
 
-x = x0, y = y0
+x = 0, y = y0
 FOR X: x0 -> x1
   v0 = f(x+1,y+1)
   v1 = f(x+1,y)
