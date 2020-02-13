@@ -25,7 +25,7 @@
 ### Matrix Math
 - matrix multiplication
   - M0 * M1 != M1 * M0 (not commutative)
-  - number of columns in first matrix but equal number of rows in second matrix
+  - number of columns in first matrix must equal number of rows in second matrix
   - dimensions of product: rows of first matrix and columns of second matrix
   - multiply edge matrices with 3x3 matrices to have a product that is 3xN
     - the first matrix should be the 3x3 matrix, and the second matrix should be the 3xN matrix
