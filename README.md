@@ -1,9 +1,15 @@
 # graphics-work
 
+## Wednesday 02/12/20
+
+### Matrix Multiplication
+- row r and column c of the product matrix is dot product of row r of matrix 1 and column c of matrix 2
+- all our multiplication will be 4x4 (square matrices) times 4xN (edge matrices)
+
 ## Tuesday 02/11/20
 
 ### Matrices in Graphics
-- our images will be stored as a list/matrix of edges
+- our images will be stored as a list/matrix of edges (edge matrices)
 - each 2 entries will represent a line
 - [ P0, P1, P2, P3, P4, P5 ... Pn ]
 - each point is an (x,y) or (x,y,z) set of coordinates
@@ -18,7 +24,7 @@
 
 ### Matrix Math
 - matrix multiplication
-  - M0 * M1 != M1 * M0
+  - M0 * M1 != M1 * M0 (not commutative)
   - number of columns in first matrix but equal number of rows in second matrix
   - dimensions of product: rows of first matrix and columns of second matrix
   - multiply edge matrices with 3x3 matrices to have a product that is 3xN
