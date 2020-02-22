@@ -69,3 +69,6 @@ while x2 > 150:
 draw_lines(matrix, screen, color)
 
 display(screen)
+save_ppm(screen, 'binary.ppm')
+save_ppm_ascii(screen, 'ascii.ppm')
+save_extension(screen, 'img.png')
