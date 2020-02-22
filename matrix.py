@@ -39,17 +39,6 @@ def ident(matrix):
 # multiply m1 by m2, modifying m2 to be the product
 # m1 * m2 -> m2
 
-# THIS METHOD OVERWRITES COLUMNS WHICH MODIFIES THE NEXT DOT PRODUCT
-# def matrix_mult(m1, m2):
-#     for r in range(len(m1[0])):
-#         for c in range(len(m2)):
-#             ans = 0
-#             for i in range(len(m1[0])):
-#                 ans += m1[i][r] * m2[c][i]
-#             m2[c][r] = ans
-
-# THIS METHOD CREATES AN ADDITIONAL METHOD
-
 
 def matrix_mult(m1, m2):
     product = new_matrix(len(m1[0]), len(m2))
@@ -62,17 +51,6 @@ def matrix_mult(m1, m2):
     for r in range(len(product[0])):
         for c in range(len(product)):
             m2[c][r] = product[c][r]
-
-# THIS METHOD CREATES TEMPORARY COLUMNS
-# def matrix_mult(m1, m2):
-#     for r in range(len(m1[0])):
-#         temp_column = [0, 0, 0, 0]
-#         for c in range(len(m2)):
-#             ans = 0
-#             for i in range(len(m1[0])):
-#                 ans += m1[i][r] * m2[c][i]
-#             temp_column[r] = ans
-#         m2[r] = temp_column
 
 
 def new_matrix(rows=4, cols=4):
