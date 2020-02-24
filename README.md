@@ -1,10 +1,58 @@
 # graphics-work
 
+## Monday 02/24/20
+
+### Transformations
+- scaling (dilation)
+- translating
+- rotating
+- will be done via matrix multiplication
+
+### Scale
+- (x, y, z) --- S a, b, c ---> (ax, by, cz)
+- multiply by the following matrix:
+
+| a 0 0 0 |
+
+| 0 b 0 0 |
+
+| 0 0 c 0 | 
+
+| 0 0 0 1 | 
+
+### Translate
+- (x, y, z) --- T a, b, c ---> (x+a, y+b, z+c)
+- multiply by the following matrix:
+
+| 1 0 0 a |
+
+| 0 1 0 b |
+
+| 0 0 1 c |
+
+| 0 0 0 1 |
+
+### Rotate
+- (x, y, z) --- R z-axis, θ ---> (xcosθ - ysinθ, ycosθ + xsinθ, z)
+- multiply by the following matrix:
+
+| cosθ -sinθ 0 0 |
+
+| sinθ cosθ 0 0 |
+
+| 0 0 1 0 |
+
+| 0 0 0 1 |
+
+----------------------------------------------------------------------
+
 ## Wednesday 02/12/20
 
 ### Matrix Multiplication
 - row r and column c of the product matrix is dot product of row r of matrix 1 and column c of matrix 2
 - all our multiplication will be 4x4 (square matrices) times 4xN (edge matrices)
+
+----------------------------------------------------------------------
 
 ## Tuesday 02/11/20
 
