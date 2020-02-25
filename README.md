@@ -1,5 +1,40 @@
 # graphics-work
 
+## Tuesday 02/25/20
+
+### Rotate about x-axis
+- (x, y, z) --- R x-axis, θ ---> (x, ycosθ - zsinθ, ysinθ + zcosθ)
+- multiply by the following matrix:
+
+| 1 0 0 0 |
+
+| 0 cosθ -sinθ 0 |
+
+| 0 sinθ cosθ 0 |
+
+| 0 0 0 1 |
+
+### Rotate about y-axis
+- (x, y, z) --- R y-axis, θ ---> (xcosθ + zsinθ, y, -xsinθ + zcosθ)
+- multiply by the following matrix:
+
+| cosθ 0 sinθ 0 |
+
+| 0 1 0 0 |
+
+| -sinθ 0 cosθ 0 |
+
+| 0 0 0 1 |
+
+### Combining Transformations
+E0: Edge Matrix, T: Translate Matrix, R: Rotate Matrix, S: Scale Matrix
+- T * E0 = E1 (Translated)
+- R * E1 = E2 (Translated, Rotated)
+- S * E2 = E3 (Translated, Rotated, Scaled)
+- E3 = S * R * T * E0
+
+----------------------------------------------------------------------
+
 ## Monday 02/24/20
 
 ### Transformations
@@ -32,8 +67,8 @@
 
 | 0 0 0 1 |
 
-### Rotate
-- (x, y, z) --- R z-axis, θ ---> (xcosθ - ysinθ, ycosθ + xsinθ, z)
+### Rotate about z-axis
+- (x, y, z) --- R z-axis, θ ---> (xcosθ - ysinθ, xsinθ + ycosθ, z)
 - multiply by the following matrix:
 
 | cosθ -sinθ 0 0 |
