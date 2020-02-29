@@ -38,7 +38,7 @@ def parse_file(fname, points, transform, screen, color):
     f = open(fname, 'r')
     lines = f.read().split('\n')
     n = 0
-    while n < len(lines) and lines[n] != 'quit':
+    while n < len(lines):
         cmd = lines[n]
         if cmd == 'line':
             args = lines[n+1]
@@ -90,3 +90,5 @@ def parse_file(fname, points, transform, screen, color):
             filename = args
             save_extension(screen, filename)
             n += 2
+        elif cmd == 'quit':
+            return
