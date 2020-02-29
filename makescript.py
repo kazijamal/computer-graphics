@@ -29,8 +29,6 @@ def make_script(fname):
         x2 += 50
         x3 += 50
 
-    f.write('rotate\nz 20\n')
-    f.write('rotate\nx 20\n')
-    f.write('rotate\ny 20\n')
+    f.write('rotate\nz 20\nrotate\nx 20\nrotate\ny 20\n')
     f.write('apply\nident\nrotate\ny 20\napply\ndisplay\n')
     f.close()
