@@ -32,5 +32,61 @@ The file follows the following format:
 
 See the file script for an example of the file format
 """
-def parse_file( fname, points, transform, screen, color ):
-    pass
+
+
+def parse_file(fname, points, transform, screen, color):
+    f = open(fname, 'r')
+    lines = f.read().split('\n')
+    n = 0
+    while n < len(lines) and lines[n] != 'quit':
+        cmd = lines[n]
+        if cmd == 'line':
+            args = lines[n+1]
+            coords = [int(arg) for arg in args.split(' ')]
+            add_edge(points, coords[0], coords[1], coords[2],
+                     coords[3], coords[4], coords[5])
+            n += 2
+        elif cmd == 'ident':
+            ident(transform)
+            n += 1
+        elif cmd == 'scale':
+            args = lines[n+1]
+            scalefactor = [int(arg) for arg in args.split(' ')]
+            scale = make_scale(scalefactor[0], scalefactor[1], scalefactor[2])
+            matrix_mult(scale, transform)
+            n += 2
+        elif cmd == 'move':
+            args = lines[n+1]
+            translation = [int(arg) for arg in args.split(' ')]
+            translate = make_translate(
+                translation[0], translation[1], translation[2])
+            matrix_mult(translate, transform)
+            n += 2
+        elif cmd == 'rotate':
+            args = lines[n+1]
+            arguments = args.split(' ')
+            axis = arguments[0]
+            theta = float(arguments[1])
+            if axis == 'x':
+                rotate = make_rotX(theta)
+            elif axis == 'y':
+                rotate = make_rotY(theta)
+            elif axis == 'z':
+                rotate = make_rotZ(theta)
+            matrix_mult(rotate, transform)
+            n += 2
+        elif cmd == 'apply':
+            matrix_mult(transform, points)
+            n += 1
+        elif cmd == 'display':
+            clear_screen(screen)
+            draw_lines(points, screen, color)
+            display(screen)
+            n += 1
+        elif cmd == 'save':
+            args = lines[n+1]
+            clear_screen(screen)
+            draw_lines(points, screen, color)
+            filename = args
+            save_extension(screen, filename)
+            n += 2
