@@ -1,5 +1,28 @@
 # graphics-work
 
+## Monday 03/02/20
+
+### Parametric Equations
+
+- Define curves as systems of equations in terms of a signel independent variable
+
+- Non Parametric
+	- y = f(x)
+- Parametric
+	- y = f(t)
+	- x = g(t)
+
+### Parametric Line
+(x0, y0) -> (x1, y1)
+x = x0 + (x1 - x0)t
+y = y0 + (y1 - y0)t
+
+### Circle
+x = rcosθ + Cx => x = rcos(2πt) + Cx
+y = rsinθ + Cy => y = rsin(2πt) + Cy
+
+---
+
 ## Tuesday 02/25/20
 
 ### Rotate about x-axis
@@ -33,7 +56,7 @@ E0: Edge Matrix, T: Translate Matrix, R: Rotate Matrix, S: Scale Matrix
 - S * E2 = E3 (Translated, Rotated, Scaled)
 - E3 = S * R * T * E0
 
-----------------------------------------------------------------------
+---
 
 ## Monday 02/24/20
 
@@ -79,7 +102,7 @@ E0: Edge Matrix, T: Translate Matrix, R: Rotate Matrix, S: Scale Matrix
 
 | 0 0 0 1 |
 
-----------------------------------------------------------------------
+---
 
 ## Wednesday 02/12/20
 
@@ -87,7 +110,7 @@ E0: Edge Matrix, T: Translate Matrix, R: Rotate Matrix, S: Scale Matrix
 - row r and column c of the product matrix is dot product of row r of matrix 1 and column c of matrix 2
 - all our multiplication will be 4x4 (square matrices) times 4xN (edge matrices)
 
-----------------------------------------------------------------------
+---
 
 ## Tuesday 02/11/20
 
@@ -122,7 +145,7 @@ E0: Edge Matrix, T: Translate Matrix, R: Rotate Matrix, S: Scale Matrix
 
 | 0 0 1 |
 
-----------------------------------------------------------------------
+---
 
 ## Tuesday 02/04/20
 
@@ -165,7 +188,7 @@ FOR X: x0 -> x1
   - = Ax0 + By0 + C + A + 1/2B 
   - = A + 1/2B
 
-----------------------------------------------------------------------
+---
 
 ## Monday 02/03/20
 
@@ -191,7 +214,7 @@ FOR X: x0 -> x1
 - standard form: Ax + By + C = 0
 - A = change in y, B = negative change in x, C = change in x times b
 
-----------------------------------------------------------------------
+---
 
 ## Thursday 01/30/20
 
@@ -205,7 +228,7 @@ FOR X: x0 -> x1
 - Can use display command to open image file formats
 - Can use convert command all image file formats
 
-----------------------------------------------------------------------
+---
 
 ## Wednesday 01/29/20
 
