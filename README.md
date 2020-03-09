@@ -1,9 +1,49 @@
 # graphics-work
 
+## Thursday 03/05/20
+
+### Cubic
+- Rt = ((1-t)^3)P0 + (3t(1-t)^3)P1 + (3(t^2)(1-t))P2 + (t^3)P3
+
+### Hermite Curves
+- defined by:
+	- 2 endpoints: (P0, P1)
+	- rates of change at each endpoint: (R0, R!)
+- f(t) = at^3 + bt^2 + ct + d
+	- points on the curve
+- f'(t) = 3at^2 + 2bt + c
+	- rates of change
+- f(0) = d = P0
+- f'(0) = c = R0
+- f(1) = a + b + c + d = P1
+- f'(1) = 3a + 2b + c = R1
+
+---
+
+## Tuesday 03/03/20
+
+### Splines
+- Curves (cubic) that can be connected to appear smooth/continous
+
+### Bezier Curves
+- defined by 4 control points
+- P0 and P3: endpoints
+- P1 and P2: influence points
+
+### Line
+![bezier line](https://upload.wikimedia.org/wikipedia/commons/0/00/B%C3%A9zier_1_big.gif)
+- Pt = (1-t)P0 + t(P1)
+
+### Quadratic
+![quadratic bezier curve](https://upload.wikimedia.org/wikipedia/commons/3/3d/B%C3%A9zier_2_big.gif)
+- Qt = (1-t)Q0 + t(Q1)
+- Qt = ((1-t)^2)P0 + 2t(1-t)P1 + (t^2)P2
+
+---
+
 ## Monday 03/02/20
 
 ### Parametric Equations
-
 - Define curves as systems of equations in terms of a signel independent variable
 
 - Non Parametric
