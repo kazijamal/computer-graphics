@@ -1,5 +1,28 @@
 # graphics-work
 
+## Wednesday 03/11/20
+
+### 3D Shapes
+- Box (Rectangular Prism)
+- Sphere
+- Torus
+
+### Box
+- given information
+	- vertex (front-top-left)
+	- width (x), height (y), depth (z)
+- defining points
+	- 8 verticies
+
+### Sphere
+- given information
+	- center
+	- radius
+- defining points
+	- points on the surface
+
+---
+
 ## Thursday 03/05/20
 
 ### Cubic
