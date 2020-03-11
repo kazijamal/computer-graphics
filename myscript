@@ -1,0 +1,79 @@
+circle
+250 250 0 1
+circle
+250 250 10 5
+circle
+250 250 20 9
+circle
+250 250 30 13
+circle
+250 250 40 17
+circle
+250 250 50 21
+circle
+250 250 60 25
+circle
+250 250 70 29
+circle
+250 250 80 33
+circle
+250 250 90 37
+circle
+250 250 100 41
+circle
+250 250 110 45
+circle
+250 250 120 49
+circle
+250 250 130 53
+circle
+250 250 140 57
+circle
+250 250 150 61
+circle
+250 250 160 65
+circle
+250 250 170 69
+circle
+250 250 180 73
+circle
+250 250 190 77
+circle
+250 250 200 81
+circle
+250 250 210 85
+circle
+250 250 220 89
+circle
+250 250 230 93
+circle
+250 250 240 97
+circle
+250 250 250 101
+circle
+250 250 260 105
+circle
+250 250 270 109
+circle
+250 250 280 113
+circle
+250 250 290 117
+ident
+rotate
+y 50
+apply
+ident
+rotate
+x 45
+apply
+ident
+rotate
+z -60
+apply
+ident
+move
+-100 350 0
+apply
+display
+save
+pic.png
