@@ -1,5 +1,22 @@
 # graphics-work
 
+## Thursday 03/12/20
+
+### Torus
+- given information
+	- center
+	- radius of cross section (r)
+	- distance from torus center to cross-section center (R)
+- defining points
+	- points on the surface
+- torus = circle + translation x + rotation y
+- torus = circle + translation y + rotation x
+- x = cosΦ(rcosθ + R) + Cx
+- y = rsinθ + Cy
+- z = -sinΦ(rcosθ R) + Cz
+
+---
+
 ## Wednesday 03/11/20
 
 ### 3D Shapes
@@ -20,6 +37,18 @@
 	- radius
 - defining points
 	- points on the surface
+- x = rcosθ + Cx
+- y = rsinθcosΦ + Cy
+- z = rsinθsinΦ + Cz
+- θ: circle creation: 0 - 2π
+- Φ: rotation: 0 - π
+```
+for rot: 0 - 1
+	for circ: 0 - 1
+		x = rcos(π * circ) + Cx
+		y = rsin(π * circ)cos(2π * rot) + Cy
+		z = rsin(π * circ)sin(2π * rot) + Cz
+```
 
 ---
 
