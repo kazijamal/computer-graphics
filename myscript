@@ -1,0 +1,45 @@
+ident
+sphere
+0 0 0 50
+sphere
+100 25 0 50
+sphere
+200 50 0 50
+sphere
+300 75 0 50
+sphere
+400 100 0 50
+sphere
+500 125 0 50
+sphere
+600 150 0 50
+sphere
+700 175 0 50
+sphere
+800 200 0 50
+sphere
+900 225 0 50
+sphere
+1000 250 0 50
+torus
+0 250 0 10 75
+torus
+175 250 0 10 75
+torus
+350 250 0 10 75
+torus
+525 250 0 10 75
+torus
+700 250 0 10 75
+torus
+875 250 0 10 75
+rotate
+z 20
+rotate
+x 20
+rotate
+y 20
+apply
+display
+save
+pic.png
