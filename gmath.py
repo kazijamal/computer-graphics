@@ -10,7 +10,12 @@ def normalize(vector):
 
 #Return the dot porduct of a . b
 def dot_product(a, b):
-    return 0
+    i = 0
+    ans = 0
+    while i < 3:
+        ans += a[i] * b[i]
+        i += 1
+    return ans
 
 #Calculate the surface normal for the triangle whose first
 #point is located at index i in polygons
