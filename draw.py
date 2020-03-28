@@ -11,24 +11,27 @@ def draw_polygons( polygons, screen, color ):
     if len(polygons) < 3:
         print('Need at least 3 points to draw')
         return
-    
+
+    v = [0, 0, 1]
     point = 0
     while point < len(polygons) - 2:
-        draw_line( int(polygons[point][0]),
-                   int(polygons[point][1]),
-                   int(polygons[point+1][0]),
-                   int(polygons[point+1][1]),
-                   screen, color)
-        draw_line( int(polygons[point+1][0]),
-                   int(polygons[point+1][1]),
-                   int(polygons[point+2][0]),
-                   int(polygons[point+2][1]),
-                   screen, color)
-        draw_line( int(polygons[point+2][0]),
-                   int(polygons[point+2][1]),
-                   int(polygons[point][0]),
-                   int(polygons[point][1]),
-                   screen, color)
+        n = calculate_normal(polygons, point)
+        if dot_product(n, v) > 0:
+            draw_line( int(polygons[point][0]),
+                       int(polygons[point][1]),
+                       int(polygons[point+1][0]),
+                       int(polygons[point+1][1]),
+                       screen, color)
+            draw_line( int(polygons[point+1][0]),
+                       int(polygons[point+1][1]),
+                       int(polygons[point+2][0]),
+                       int(polygons[point+2][1]),
+                       screen, color)
+            draw_line( int(polygons[point+2][0]),
+                       int(polygons[point+2][1]),
+                       int(polygons[point][0]),
+                       int(polygons[point][1]),
+                       screen, color)
         point+= 3
 
 

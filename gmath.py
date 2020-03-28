@@ -26,5 +26,5 @@ def calculate_normal(polygons, i):
     ans = [0, 0, 0]
     ans[0] = a[1]*b[2] - a[2]*b[1]
     ans[1] = a[2]*b[0] - a[0]*b[2]
-    ans[2] = a[0]*b[1] - a[1]*b[2]
+    ans[2] = a[0]*b[1] - a[1]*b[0]
     return ans
