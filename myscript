@@ -1,0 +1,21 @@
+torus
+-125 0 0 15 100
+torus
+-125 25 40 5 50
+torus
+125 0 0 15 100
+torus
+125 25 40 5 50
+move
+-250 -250 0
+ident
+rotate
+x 70
+rotate
+y 20
+move
+250 250 0
+apply
+display
+save
+pic.png
