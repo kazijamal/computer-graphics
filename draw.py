@@ -74,7 +74,7 @@ def add_sphere(polygons, cx, cy, cz, r, steps ):
 
     steps+= 1
     for lat in range(lat_start, lat_stop):
-        for longt in range(longt_start, longt_stop+1):
+        for longt in range(longt_start, longt_stop):
             index = lat * steps + longt
 
             add_polygon(polygons,
