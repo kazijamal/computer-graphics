@@ -45,24 +45,24 @@ def add_box( polygons, x, y, z, width, height, depth ):
     add_polygon(polygons, x, y1, z, x1, y1, z, x1, y, z)
 
     #back
-    add_polygon(polygons, x, y, z1, x, y1, z1, x1, y, z1)
-    add_polygon(polygons, x, y1, z1, x1, y1, z1, x1, y, z1)
+    add_polygon(polygons, x, y, z1, x1, y, z1, x, y1, z1)
+    add_polygon(polygons, x, y1, z1, x1, y, z1, x1, y1, z1)
     
     #top
-    add_polygon(polygons, x, y, z, x1, y, z1, x, y, z1)
+    add_polygon(polygons, x, y, z1, x, y, z, x1, y, z1)
     add_polygon(polygons, x, y, z, x1, y, z, x1, y, z1)
     
     #bottom
-    add_polygon(polygons, x, y1, z, x1, y1, z1, x, y1, z1)
-    add_polygon(polygons, x, y1, z, x1, y1, z, x1, y1, z1)
+    add_polygon(polygons, x1, y1, z1, x1, y1, z, x, y1, z)
+    add_polygon(polygons, x, y1, z, x, y1, z1, x1, y1, z1)
     
     #left side
-    add_polygon(polygons, x, y, z, x, y, z1, x, y1, z1)
-    add_polygon(polygons, x, y1, z1, x, y1, z, x, y, z)
+    add_polygon(polygons, x, y, z1, x, y1, z1, x, y1, z)
+    add_polygon(polygons, x, y, z1, x, y1, z, x, y, z)
     
     #right side
-    add_polygon(polygons, x1, y, z, x1, y, z1, x1, y1, z1)
-    add_polygon(polygons, x1, y1, z1, x1, y1, z, x1, y, z)
+    add_polygon(polygons, x1, y, z, x1, y1, z, x1, y, z1)
+    add_polygon(polygons, x1, y, z1, x1, y1, z, x1, y1, z1)
 
 def add_sphere(polygons, cx, cy, cz, r, steps ):
     points = generate_sphere(cx, cy, cz, r, steps)
@@ -92,9 +92,9 @@ def add_sphere(polygons, cx, cy, cz, r, steps ):
                         points[index][0],
                         points[index][1],
                         points[index][2],
-                        points[(index+1) % len(points)][0],
-                        points[(index+1) % len(points)][1],
-                        points[(index+1) % len(points)][2],
+                        points[(index+1+steps) % len(points)][0],
+                        points[(index+1+steps) % len(points)][1],
+                        points[(index+1+steps) % len(points)][2],
                         points[(index+steps) % len(points)][0],
                         points[(index+steps) % len(points)][1],
                         points[(index+steps) % len(points)][2])
