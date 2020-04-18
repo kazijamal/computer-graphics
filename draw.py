@@ -60,7 +60,7 @@ def scanline_convert(polygons, i, screen, zbuffer):
 	y = y0
 
 	i = 0
-	while y <= t[1]:
+	while int(y) <= int(t[1]):
 		if special == True and i == 0:
 			x1 = m[0]
 			dx1 = dx1_1
@@ -76,7 +76,7 @@ def scanline_convert(polygons, i, screen, zbuffer):
 		z0 += dz0
 		z1 += dz1
 		# swap deltas
-		if y >= m[1] and i == 0:
+		if int(y) >= int(m[1]) and i == 0:
 			x1 = m[0]
 			dx1 = dx1_1
 			z1 = m[2]
