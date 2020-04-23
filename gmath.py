@@ -26,19 +26,38 @@ def get_lighting(normal, view, ambient, light, areflect, dreflect, sreflect):
     lambient = calculate_ambient(ambient, areflect)
     ldiffuse = calculate_diffuse(light, dreflect, normal)
     lspecular = calculate_specular(light, sreflect, view, normal)
-    return lambient + ldiffuse + lspecular
+    return [lambient[0] + ldiffuse[0] + lspecular[0], lambient[1] + ldiffuse[1] + lspecular[1], lambient[2] + ldiffuse[2] + lspecular[2]]
 
 
 def calculate_ambient(alight, areflect):
-    pass
+    l_r = alight[0] * areflect[0]
+    l_g = alight[1] * areflect[1]
+    l_b = alight[2] * areflect[2]
+    return [limit_color(l_r), limit_color(l_g), limit_color(l_b)]
 
 
 def calculate_diffuse(light, dreflect, normal):
-    pass
+    normalize(normal)
+    normalize(light[0])
+    d_p = dot_product(normal, light[0])
+    l_r = light[1][0] * dreflect[0] * d_p
+    l_g = light[1][1] * dreflect[1] * d_p
+    l_b = light[1][2] * dreflect[2] * d_p
+    return [limit_color(l_r), limit_color(l_g), limit_color(l_b)]
 
 
 def calculate_specular(light, sreflect, view, normal):
-    pass
+    normalize(normal)
+    normalize(light[0])
+    d_p = dot_product(normal, light[0])
+    t = [normal[0] * d_p, normal[1] * d_p, normal[2] * d_p]
+    s = [t[0] - light[0][0], t[1] - light[0][1], t[2] - light[0][2]]
+    r = [t[0] + s[0], t[1] + s[1], t[2] + s[2]]
+    d_p = dot_product(r, view)
+    l_r = light[1][0] * sreflect[0] * d_p
+    l_g = light[1][1] * sreflect[1] * d_p
+    l_b = light[1][2] * sreflect[2] * d_p
+    return [limit_color(l_r), limit_color(l_g), limit_color(l_b)]
 
 
 def limit_color(color):
@@ -46,7 +65,7 @@ def limit_color(color):
         return 255
     elif color < 0:
         return 0
-    return color
+    return int(color)
 
 # vector functions
 # normalize vetor, should modify the parameter
