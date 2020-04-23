@@ -38,25 +38,25 @@ def calculate_ambient(alight, areflect):
 
 def calculate_diffuse(light, dreflect, normal):
     normalize(normal)
-    normalize(light[0])
-    d_p = dot_product(normal, light[0])
-    l_r = light[1][0] * dreflect[0] * d_p
-    l_g = light[1][1] * dreflect[1] * d_p
-    l_b = light[1][2] * dreflect[2] * d_p
+    normalize(light[LOCATION])
+    d_p = dot_product(normal, light[LOCATION])
+    l_r = light[COLOR][0] * dreflect[0] * d_p
+    l_g = light[COLOR][1] * dreflect[1] * d_p
+    l_b = light[COLOR][2] * dreflect[2] * d_p
     return [limit_color(l_r), limit_color(l_g), limit_color(l_b)]
 
 
 def calculate_specular(light, sreflect, view, normal):
     normalize(normal)
-    normalize(light[0])
-    d_p = dot_product(normal, light[0])
+    normalize(light[LOCATION])
+    d_p = dot_product(normal, light[LOCATION])
     t = [normal[0] * d_p, normal[1] * d_p, normal[2] * d_p]
-    s = [t[0] - light[0][0], t[1] - light[0][1], t[2] - light[0][2]]
+    s = [t[0] - light[LOCATION][0], t[1] - light[LOCATION][1], t[2] - light[LOCATION][2]]
     r = [t[0] + s[0], t[1] + s[1], t[2] + s[2]]
     d_p = dot_product(r, view)
-    l_r = light[1][0] * sreflect[0] * d_p
-    l_g = light[1][1] * sreflect[1] * d_p
-    l_b = light[1][2] * sreflect[2] * d_p
+    l_r = light[COLOR][0] * (sreflect[0] * d_p)**2
+    l_g = light[COLOR][1] * (sreflect[1] * d_p)**2
+    l_b = light[COLOR][2] * (sreflect[2] * d_p)**2
     return [limit_color(l_r), limit_color(l_g), limit_color(l_b)]
 
 
