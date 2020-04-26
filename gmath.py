@@ -51,7 +51,8 @@ def calculate_specular(light, sreflect, view, normal):
     normalize(light[LOCATION])
     d_p = dot_product(normal, light[LOCATION])
     t = [normal[0] * d_p, normal[1] * d_p, normal[2] * d_p]
-    s = [t[0] - light[LOCATION][0], t[1] - light[LOCATION][1], t[2] - light[LOCATION][2]]
+    s = [t[0] - light[LOCATION][0], t[1] -
+         light[LOCATION][1], t[2] - light[LOCATION][2]]
     r = [t[0] + s[0], t[1] + s[1], t[2] + s[2]]
     d_p = dot_product(r, view)
     l_r = light[COLOR][0] * (sreflect[0] * d_p)**SPECULAR_EXP
