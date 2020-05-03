@@ -79,41 +79,45 @@ def run(filename):
         elif op == 'box':
             args = command['args']
             constant = command['constants'] if command['constants'] else '.white'
-            add_box(coords,
+            polygons = []
+            add_box(polygons,
                     float(args[0]), float(args[1]), float(args[2]),
                     float(args[3]), float(args[4]), float(args[5]))
-            matrix_mult(stack[-1], coords)
-            draw_polygons(coords, screen, zbuffer, view,
+            matrix_mult(stack[-1], polygons)
+            draw_polygons(polygons, screen, zbuffer, view,
                           ambient, light, symbols, constant)
-            coords = []
+            polygons = []
         elif op == 'sphere':
             args = command['args']
             constant = command['constants'] if command['constants'] else '.white'
-            add_sphere(coords,
+            polygons = []
+            add_sphere(polygons,
                        float(args[0]), float(args[1]), float(args[2]),
                        float(args[3]), step_3d)
-            matrix_mult(stack[-1], coords)
-            draw_polygons(coords, screen, zbuffer, view,
+            matrix_mult(stack[-1], polygons)
+            draw_polygons(polygons, screen, zbuffer, view,
                           ambient, light, symbols, constant)
-            coords = []
+            polygons = []
         elif op == 'torus':
             args = command['args']
             constant = command['constants'] if command['constants'] else '.white'
-            add_torus(coords,
+            polygons = []
+            add_torus(polygons,
                       float(args[0]), float(args[1]), float(args[2]),
                       float(args[3]), float(args[4]), step_3d)
-            matrix_mult(stack[-1], coords)
-            draw_polygons(coords, screen, zbuffer, view,
+            matrix_mult(stack[-1], polygons)
+            draw_polygons(polygons, screen, zbuffer, view,
                           ambient, light, symbols, constant)
-            coords = []
+            polygons = []
         elif op == 'line':
             args = command['args']
-            add_edge(coords,
+            edges = []
+            add_edge(edges,
                      float(args[0]), float(args[1]), float(args[2]),
                      float(args[3]), float(args[4]), float(args[5]))
-            matrix_mult(stack[-1], coords)
-            draw_lines(coords, screen, zbuffer, color)
-            coords = []
+            matrix_mult(stack[-1], edges)
+            draw_lines(edges, screen, zbuffer, color)
+            edges = []
         elif op == 'save':
             args = command['args']
             save_extension(screen, args[0])
