@@ -62,7 +62,7 @@ def run(filename):
             stack[-1] = [x[:] for x in tmp]
         elif op == 'rotate':
             args = command['args']
-            theta = float(args[1]) + (math.pi / 180)
+            theta = float(args[1]) * (math.pi / 180)
             if args[0] == 'x':
                 tmp = make_rotX(theta)
             elif args[0] == 'y':
