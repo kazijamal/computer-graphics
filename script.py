@@ -93,6 +93,19 @@ def second_pass( commands, num_frames ):
                 #print 'knob: ' + knob_name + '\tvalue: ' + str(frames[f][knob_name])
     return frames
 
+def knobDetector(commands, symbols):
+    knobList = []
+    for command in commands:
+        if command['op'] == 'set':
+            knobList.append(command['knob'])
+            symbols[command['knob']] = command['args'][0]
+        elif command['op'] == 'save_knobs':
+            kList = {}
+            for symbol in symbols:
+                if symbol in knobList:
+                    kList[symbol] = symbols[symbol]
+            symbols[command['knob_list']] = kList
+                    
 
 def run(filename):
     """
@@ -128,7 +141,10 @@ def run(filename):
 
     (name, num_frames) = first_pass(commands)
     frames = second_pass(commands, num_frames)
-
+    knobDetector(commands, symbols)
+    
+    print(symbols)
+    
     for f in range(num_frames):
         tmp = new_matrix()
         ident( tmp )
