@@ -107,7 +107,22 @@ def knobDetector(commands, symbols):
             symbols[command['knob_list']] = kList
 
 def tween(commands, start, end, knob1, knob2, base):
-        return
+    masterKnob = []
+    i = start
+    while i <= end:
+        masterKnob.append({})
+        i += 1
+    for knob in knob1:
+        vals = []
+        st_val = knob1[knob]
+        fi_val = knob2[knob]
+        d = (fi_val - st_val) / (end - start)
+        i = int(start)
+        while i <= end:
+            masterKnob[i-int(start)][knob] = st_val + d * (i - start)
+            i += 1
+    print(masterKnob)
+    
 
 def run(filename):
     """
@@ -144,6 +159,10 @@ def run(filename):
     (name, num_frames) = first_pass(commands)
     frames = second_pass(commands, num_frames)
     knobDetector(commands, symbols)
+    
+    for command in commands:
+        if command['op'] == 'tween':
+            tween(commands, command['args'][0], command['args'][1], symbols[command['knob_list0']], symbols[command['knob_list1']], name)
     
     for f in range(num_frames):
         print(symbols)
