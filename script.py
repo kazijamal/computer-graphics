@@ -106,7 +106,15 @@ def knobDetector(commands, symbols):
                     kList[symbol] = symbols[symbol][1]
             symbols[command['knob_list']] = kList
 
-def tween(commands, start, end, knob1, knob2, base):
+def filName(name, num):
+    if num < 10:
+        return '{}00{}.png'.format(name, num)
+    if num < 100:
+        return '{}0{}.png'.format(name, num)
+    else:
+        return '{}{}.png'.format(name, num)
+
+def tween(symbols, commands, start, end, knob1, knob2, base):
     masterKnob = []
     i = start
     while i <= end:
@@ -121,9 +129,107 @@ def tween(commands, start, end, knob1, knob2, base):
         while i <= end:
             masterKnob[i-int(start)][knob] = st_val + d * (i - start)
             i += 1
-    print(masterKnob)
-    
+    #print(masterKnob)
+    view = [0,
+            0,
+            1];
+    ambient = [50,
+               50,
+               50]
+    light = [[0.5,
+              0.75,
+              1],
+             [255,
+              255,
+              255]]
+    i = int(start)
+    while i <= end:
+        tmp = new_matrix()
+        ident( tmp )
 
+        stack = [ [x[:] for x in tmp] ]
+        screen = new_screen()
+        zbuffer = new_zbuffer()
+        tmp = []
+        step_3d = 100
+        consts = ''
+        coords = []
+        coords1 = []
+        for command in commands:
+            c = command['op']
+            args = command['args']
+            knob_value = 1
+            if c == 'box':
+                if command['constants']:
+                    reflect = command['constants']
+                add_box(tmp,
+                        args[0], args[1], args[2],
+                        args[3], args[4], args[5])
+                matrix_mult( stack[-1], tmp )
+                draw_polygons(tmp, screen, zbuffer, view, ambient, light, symbols, reflect)
+                tmp = []
+                reflect = '.white'
+            elif c == 'sphere':
+                if command['constants']:
+                    reflect = command['constants']
+                add_sphere(tmp,
+                           args[0], args[1], args[2], args[3], step_3d)
+                matrix_mult( stack[-1], tmp )
+                draw_polygons(tmp, screen, zbuffer, view, ambient, light, symbols, reflect)
+                tmp = []
+                reflect = '.white'
+            elif c == 'torus':
+                if command['constants']:
+                    reflect = command['constants']
+                add_torus(tmp,
+                          args[0], args[1], args[2], args[3], args[4], step_3d)
+                matrix_mult( stack[-1], tmp )
+                draw_polygons(tmp, screen, zbuffer, view, ambient, light, symbols, reflect)
+                tmp = []
+                reflect = '.white'
+            elif c == 'line':
+                add_edge(tmp,
+                         args[0], args[1], args[2], args[3], args[4], args[5])
+                matrix_mult( stack[-1], tmp )
+                draw_lines(tmp, screen, zbuffer, color)
+                tmp = []
+            elif c == 'move':
+                if command['knob']:
+                    knob_value = masterKnob[i-int(start)][command['knob']]
+                #print(knob_value)
+                tmp = make_translate(args[0] * knob_value, args[1] * knob_value, args[2] * knob_value)
+                matrix_mult(stack[-1], tmp)
+                stack[-1] = [x[:] for x in tmp]
+                tmp = []
+            elif c == 'scale':
+                if command['knob']:
+                    knob_value = masterKnob[i-int(start)][command['knob']]
+                tmp = make_scale(args[0] * knob_value, args[1] * knob_value, args[2] * knob_value)
+                matrix_mult(stack[-1], tmp)
+                stack[-1] = [x[:] for x in tmp]
+                tmp = []
+            elif c == 'rotate':
+                if command['knob']:
+                    knob_value = masterKnob[i-int(start)][command['knob']]
+                theta = args[1] * (math.pi/180) * knob_value
+                if args[0] == 'x':
+                    tmp = make_rotX(theta)
+                elif args[0] == 'y':
+                    tmp = make_rotY(theta)
+                else:
+                    tmp = make_rotZ(theta)
+                matrix_mult( stack[-1], tmp )
+                stack[-1] = [ x[:] for x in tmp]
+                tmp = []
+            elif c == 'push':
+                stack.append([x[:] for x in stack[-1]] )
+            elif c == 'pop':
+                stack.pop()
+        print('saving frame {}'.format(i))
+        save_extension(screen, 'anim/'+filName(base, i))
+        i += 1
+    make_animation(base)
+    
 def run(filename):
     """
     This function runs an mdl script
@@ -162,10 +268,10 @@ def run(filename):
     
     for command in commands:
         if command['op'] == 'tween':
-            tween(commands, command['args'][0], command['args'][1], symbols[command['knob_list0']], symbols[command['knob_list1']], name)
+            tween(symbols, commands, command['args'][0], command['args'][1], symbols[command['knob_list0']], symbols[command['knob_list1']], name)
     
     for f in range(num_frames):
-        print(symbols)
+        #print(symbols)
         tmp = new_matrix()
         ident( tmp )
 
@@ -187,7 +293,7 @@ def run(filename):
                 print('\tkob: ' + knob + '\tvalue: ' + str(frame[knob]))
 
         for command in commands:
-            print(command)
+            #print(command)
             c = command['op']
             args = command['args']
             knob_value = 1
