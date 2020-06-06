@@ -98,14 +98,16 @@ def knobDetector(commands, symbols):
     for command in commands:
         if command['op'] == 'set':
             knobList.append(command['knob'])
-            symbols[command['knob']] = command['args'][0]
+            symbols[command['knob']] = ['knob', command['args'][0]]
         elif command['op'] == 'save_knobs':
             kList = {}
             for symbol in symbols:
                 if symbol in knobList:
-                    kList[symbol] = symbols[symbol]
+                    kList[symbol] = symbols[symbol][1]
             symbols[command['knob_list']] = kList
-                    
+
+def tween(commands, start, end, knob1, knob2, base):
+        return
 
 def run(filename):
     """
@@ -143,9 +145,8 @@ def run(filename):
     frames = second_pass(commands, num_frames)
     knobDetector(commands, symbols)
     
-    print(symbols)
-    
     for f in range(num_frames):
+        print(symbols)
         tmp = new_matrix()
         ident( tmp )
 
