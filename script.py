@@ -142,6 +142,12 @@ def tween(symbols, commands, start, end, knob1, knob2, base):
              [255,
               255,
               255]]]
+    color = [0, 0, 0]
+    symbols['.white'] = ['constants',
+                         {'red': [0.2, 0.5, 0.5],
+                          'green': [0.2, 0.5, 0.5],
+                          'blue': [0.2, 0.5, 0.5]}]
+    reflect = '.white'
     i = int(start)
     while i <= end:
         tmp = new_matrix()
@@ -195,7 +201,10 @@ def tween(symbols, commands, start, end, knob1, knob2, base):
                 tmp = []
             elif c == 'move':
                 if command['knob']:
-                    knob_value = masterKnob[i-int(start)][command['knob']]
+                    if command['knob'] in symbols:
+                        knob_value = symbols[command['knob']][1]
+                    else:
+                        knob_value = masterKnob[i-int(start)][command['knob']]
                 #print(knob_value)
                 tmp = make_translate(args[0] * knob_value, args[1] * knob_value, args[2] * knob_value)
                 matrix_mult(stack[-1], tmp)
@@ -203,14 +212,20 @@ def tween(symbols, commands, start, end, knob1, knob2, base):
                 tmp = []
             elif c == 'scale':
                 if command['knob']:
-                    knob_value = masterKnob[i-int(start)][command['knob']]
+                    if command['knob'] in symbols:
+                        knob_value = symbols[command['knob']][1]
+                    else:
+                        knob_value = masterKnob[i-int(start)][command['knob']]
                 tmp = make_scale(args[0] * knob_value, args[1] * knob_value, args[2] * knob_value)
                 matrix_mult(stack[-1], tmp)
                 stack[-1] = [x[:] for x in tmp]
                 tmp = []
             elif c == 'rotate':
                 if command['knob']:
-                    knob_value = masterKnob[i-int(start)][command['knob']]
+                    if command['knob'] in symbols:
+                        knob_value = symbols[command['knob']][1]
+                    else:
+                        knob_value = masterKnob[i-int(start)][command['knob']]
                 theta = args[1] * (math.pi/180) * knob_value
                 if args[0] == 'x':
                     tmp = make_rotX(theta)
