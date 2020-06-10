@@ -136,7 +136,7 @@ def tween(symbols, commands, start, end, knob1, knob2, base):
     ambient = [50,
                50,
                50]
-    lights = [[[0.5,
+    light = [[[0.5,
               0.75,
               1],
              [255,
@@ -221,6 +221,11 @@ def tween(symbols, commands, start, end, knob1, knob2, base):
                 matrix_mult( stack[-1], tmp )
                 stack[-1] = [ x[:] for x in tmp]
                 tmp = []
+            elif c == 'light':
+                new_light = symbols[command["light"]][1]
+                light.append([new_light["location"], new_light["color"]])
+            elif c == 'ambient':
+                ambient = args
             elif c == 'push':
                 stack.append([x[:] for x in stack[-1]] )
             elif c == 'pop':
