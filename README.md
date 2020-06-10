@@ -4,7 +4,6 @@
 
 ## Features
 - light
-- mesh
 - set
 - saveknobs
 - tween
