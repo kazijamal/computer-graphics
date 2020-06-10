@@ -362,6 +362,8 @@ def run(filename):
             elif c == 'light':
                 new_light = symbols[command["light"]][1]
                 light.append([new_light["location"], new_light["color"]])
+            elif c == 'ambient':
+                ambient = args
             elif c == 'push':
                 stack.append([x[:] for x in stack[-1]] )
             elif c == 'pop':

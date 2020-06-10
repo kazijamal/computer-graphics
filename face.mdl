@@ -1,7 +1,9 @@
 // Note: This uses the light values in the provided source code.
+ambient 50 50 50
 light l0 1 1 1 255 0 0
 light l1 -1 1 1 0 0 255
 light l2 0 -1 1 0 255 0
+// light l3 0 1 1 255 255 255
 constants shiny_purple 0.3 0.2 0.8 0.3 0 0 0.3 0.2 0.8
 constants shiny_teal 0.3 0.0 0.0 0.3 0.2 0.8 0.3 0.2 0.8
 constants dull_yellow 0.3 0.8 0.2 0.3 0.8 0.2 0 0 0
