@@ -205,7 +205,7 @@ def tween(symbols, commands, start, end, knob1, knob2, base):
                         knob_value = masterKnob[i-int(start)][command['knob']]
                     else:
                         knob_value = symbols[command['knob']][1]
-                print(knob_value)
+                #print(knob_value)
                 tmp = make_translate(args[0] * knob_value, args[1] * knob_value, args[2] * knob_value)
                 matrix_mult(stack[-1], tmp)
                 stack[-1] = [x[:] for x in tmp]
