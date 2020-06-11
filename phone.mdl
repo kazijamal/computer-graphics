@@ -1,0 +1,56 @@
+ambient 50 50 50
+light l0 1 1 1 255 0 0
+light l1 -1 1 1 0 0 255
+light l2 0 -1 1 0 255 0
+light l3 0 1 1 255 255 255
+constants silver 0.19225 0.19225 0.508263 0.19225 0.19225 0.508263 0.19225 0.19225 0.508263 
+constants chrome 0.25 0.4 0.774597 0.25 0.4 0.774597 0.25 0.4 0.774597
+constants black 0 0 0 0 0 0 0 0 0
+
+push
+    move 250 250 0
+    rotate y 180
+
+    // body
+    box silver -100 200 -25 200 400 25
+
+    // back glass
+    box chrome -100 200 -50 200 400 2
+
+    // screen
+    box black -90 190 -20 180 380 5
+
+    // left side buttons
+    push
+        move -105 50 -31
+        box chrome 0 0 0 5 50 10
+        box chrome 0 60 0 5 50 10
+        box chrome 0 100 0 5 25 10
+    pop
+
+    // right side buttons
+    push
+        move 100 80 -31
+        box chrome 0 0 0 5 50 10
+    pop
+
+    // logo
+    push
+        move 0 0 -50
+        scale 1 1 0.3
+        sphere silver 0 0 0 25
+    pop
+
+    // cameras
+    push
+        move -10 190 -50
+        box silver 0 0 0 100 100 5
+        scale 1 1 0.3
+        sphere silver 73 -73 -22 18
+        sphere silver 73 -28 -22 18
+        sphere silver 28 -73 -22 18
+        sphere silver 28 -28 -22 18
+    pop
+pop
+
+display
