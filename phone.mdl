@@ -4,18 +4,21 @@ light l1 -1 1 1 0 0 255
 light l2 0 -1 1 0 255 0
 light l3 0 1 1 255 255 255
 constants silver 0.19225 0.19225 0.508263 0.19225 0.19225 0.508263 0.19225 0.19225 0.508263 
-constants chrome 0.25 0.4 0.774597 0.25 0.4 0.774597 0.25 0.4 0.774597
+constants case 0.1 0.2 0.4 0.1 0.2 0.4 0.1 0.2 0.4
+constants chrome 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1
+constants frame 0.25 0.4 0.774597 0.25 0.4 0.774597 0.25 0.4 0.774597
 constants black 0 0 0 0 0 0 0 0 0
 
 push
     move 250 250 0
     rotate y 360 candy
+	rotate x -40
 
     // body
-    box silver -100 200 -25 200 400 25
+    box frame -100 200 -25 200 400 25
 
     // back glass
-    box chrome -100 200 -50 200 400 2
+    box case -100 200 -50 200 400 2
 
     // screen
     box black -90 190 -20 180 380 5
@@ -57,5 +60,5 @@ set candy 0
 save_knobs apple
 set candy 1
 save_knobs banana
-tween 0 50 apple banana
+tween 0 100 apple banana
 display
