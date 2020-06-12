@@ -1,8 +1,8 @@
 ambient 50 50 50
-light l0 1 1 1 255 0 0
-light l1 -1 1 1 0 0 255
-light l2 0 -1 1 0 255 0
-light l3 0 1 1 255 255 255
+light l0 1 1 1 150 0 0
+light l1 -1 1 1 0 0 150
+light l2 0 -1 1 0 150 0
+light l3 0 1 1 150 150 150
 constants silver 0.19225 0.19225 0.508263 0.19225 0.19225 0.508263 0.19225 0.19225 0.508263 
 constants case 0.1 0.2 0.4 0.1 0.2 0.4 0.1 0.2 0.4
 constants chrome 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1 0.1
@@ -12,7 +12,7 @@ constants black 0 0 0 0 0 0 0 0 0
 push
     move 250 250 0
     rotate y 360 candy
-	rotate x -40
+	rotate x -20
 
     // body
     box frame -100 200 -25 200 400 25
