@@ -148,6 +148,14 @@ def tween(symbols, commands, start, end, knob1, knob2, base):
                           'green': [0.2, 0.5, 0.5],
                           'blue': [0.2, 0.5, 0.5]}]
     reflect = '.white'
+
+    for command in commands:
+        if command['op'] == 'light':
+            new_light = symbols[command["light"]][1]
+            light.append([new_light["location"], new_light["color"]])
+        elif command['op'] == 'ambient':
+            ambient = command['args']
+    
     i = int(start)
     while i <= end:
         tmp = new_matrix()
@@ -236,11 +244,6 @@ def tween(symbols, commands, start, end, knob1, knob2, base):
                 matrix_mult( stack[-1], tmp )
                 stack[-1] = [ x[:] for x in tmp]
                 tmp = []
-            elif c == 'light':
-                new_light = symbols[command["light"]][1]
-                light.append([new_light["location"], new_light["color"]])
-            elif c == 'ambient':
-                ambient = args
             elif c == 'push':
                 stack.append([x[:] for x in stack[-1]] )
             elif c == 'pop':
@@ -285,6 +288,13 @@ def run(filename):
     (name, num_frames) = first_pass(commands)
     frames = second_pass(commands, num_frames)
     knobDetector(commands, symbols)
+
+    for command in commands:
+        if command['op'] == 'light':
+            new_light = symbols[command["light"]][1]
+            light.append([new_light["location"], new_light["color"]])
+        elif command['op'] == 'ambient':
+            ambient = command['args']
     
     for command in commands:
         if command['op'] == 'tween':
@@ -379,11 +389,6 @@ def run(filename):
                 matrix_mult( stack[-1], tmp )
                 stack[-1] = [ x[:] for x in tmp]
                 tmp = []
-            elif c == 'light':
-                new_light = symbols[command["light"]][1]
-                light.append([new_light["location"], new_light["color"]])
-            elif c == 'ambient':
-                ambient = args
             elif c == 'push':
                 stack.append([x[:] for x in stack[-1]] )
             elif c == 'pop':
