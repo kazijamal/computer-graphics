@@ -1,0 +1,28 @@
+constants teal 0.3 0.2 0.8 0.3 0 0 0.3 0.2 0.8
+constants purple 0.3 0.0 0.0 0.3 0.2 0.8 0.3 0.2 0.8
+constants obsidian 0.05375 0.05 0.06625 0.18265 0.17 0.22525 0.332741 0.328634 0.346435
+constants red 0.3 0.8 1 0 0 0 0 0 0
+
+frames 100
+basename skrt
+
+push
+	move -200 250 0
+
+	push
+		rotate y -30
+		move 1000 0 0 vroom
+		box purple -150 0 50 300 50 100
+		box teal -75 50 50 150 50 100
+		box red 175 0 95 5 20 20
+		box red 175 0 20 5 20 20
+	pop
+
+	push
+		move 890 0 300 vroom
+		sphere obsidian -100 -50 200 25
+		sphere obsidian 50 -50 300 25
+	pop
+pop
+
+vary vroom 0 99 0 1
