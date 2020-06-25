@@ -1,3 +1,3 @@
 # computer-graphics
 
-Repository for MKS66 Computer Graphics at Stuyvesant High School
+Repository for MKS66C Computer Graphics at Stuyvesant High School
